@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace algorithmANT
 {
@@ -29,6 +28,22 @@ namespace algorithmANT
             this.matrix = new AdjacencyMatrix(matrix);
         }
 
+        internal AdjacencyMatrix AdjacencyMatrix
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal Ant Ant
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public double GetShortestCycleDistance()
         {
             return shortestCycleDistanse;
@@ -47,7 +62,7 @@ namespace algorithmANT
 
         public void FindShortestHamiltonianСycle() 
         {
-            // Инициализация матрицы феромона)
+            // Initialization of the pheromone matrix
             double[,] pheromoneMatrix = new double[matrix.GetSize(), matrix.GetSize()];
             for (int i = 0; i < matrix.GetSize(); i++)
             {
@@ -60,7 +75,7 @@ namespace algorithmANT
             Random random = new Random();
             List<Ant> ants = new List<Ant>();
 
-            // Создание муравьёв
+            // Creating ants
             for (int i = 0; i < numAnts; i++)
             {
                 ants.Add(new Ant(matrix.GetSize()));

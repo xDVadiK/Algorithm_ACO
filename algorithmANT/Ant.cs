@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace algorithmANT
 {
@@ -19,10 +15,10 @@ namespace algorithmANT
         public void ConstructSolution(double[,] pheromoneMatrix, AdjacencyMatrix distanceMatrix, double alpha, double beta, Random random)
         {
             CycleDistance = 0.0;
-            int numCities = Cycle.Length; // Количество городов
-            bool[] visited = new bool[numCities]; // Посещённые города  
+            int numCities = Cycle.Length; // Number of cities
+            bool[] visited = new bool[numCities]; // Visited cities  
 
-            // Начало из рандомного города
+            // Starting from a random city
             int startCity = random.Next(numCities);
             Cycle[0] = startCity;
             visited[startCity] = true;
@@ -55,7 +51,7 @@ namespace algorithmANT
                     }
                 }
 
-                // Случайный выбор следующего города
+                // Random selection of the next city
                 double randomValue = random.NextDouble();
                 double cumulativeProbability = 0;
                 int selectedCity = -1;
