@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace algorithmANT
 {
     internal class AdjacencyMatrix
     {
-        private int[,] matrix;
+        private int[,] matrix; // Adjacency matrix for graph storage
 
+        // Class Constructor
         public AdjacencyMatrix(int[,] array)
         {
             int size = array.GetLength(0);
@@ -34,11 +31,13 @@ namespace algorithmANT
             }
         }
 
+        // Determining the distance between the specified cities
         public int Get(int source, int destination)
         {
             return matrix[source, destination];
         }
 
+        // Determining the order of the matrix
         public int GetSize()
         {
             return matrix.GetLength(0);

@@ -4,14 +4,19 @@ namespace algorithmANT
 {
     internal class Ant
     {
+        // The path taken by the ant
         public int[] Cycle { get; private set; }
+
+        // The length of the path traveled by the ant
         public double CycleDistance { get; private set; }
 
+        // Class Constructor
         public Ant(int numCities)
         {
             Cycle = new int[numCities];
         }
 
+        // Finding a Hamiltonian cycle in a graph
         public void ConstructSolution(double[,] pheromoneMatrix, AdjacencyMatrix distanceMatrix, double alpha, double beta, Random random)
         {
             CycleDistance = 0.0;
@@ -79,6 +84,7 @@ namespace algorithmANT
             CycleDistance += distanceMatrix.Get(Cycle[numCities - 1], Cycle[0]);
         }
 
+        // Updating the pheromone value on the traveled paths
         public void UpdatePheromone(double[,] pheromoneMatrix, double k, double e)
         {
             int numCities = Cycle.Length;

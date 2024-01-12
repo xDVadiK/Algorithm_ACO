@@ -7,15 +7,15 @@ namespace algorithmANT
 {
     internal class AСO
     {
-        private int numAnts;
-        private int maxIterations;
-        private double pheromoneEvaporationRate;
-        private double alpha;
-        private double beta;
-        private double k;
-        private double shortestCycleDistanse;
-        private int[] shortestCycle;
-        AdjacencyMatrix matrix;
+        private int numAnts; // Number of ants
+        private int maxIterations; // Number of iterations
+        private double pheromoneEvaporationRate; // Pheromone evaporation coefficient
+        private double alpha; // Pheromone quantity priority
+        private double beta; // Priority of the path length
+        private double k; // Pheromone trace coefficient
+        private double shortestCycleDistanse; // The length of the shortest Hamiltonian cycle
+        private int[] shortestCycle; // The shortest Hamiltonian cycle
+        AdjacencyMatrix matrix; // Adjacency matrix for graph storage
 
         public AСO(int numAnts, int maxIterations, double pheromoneEvaporationRate, double alpha, double beta, double k, int[,] matrix)
         {
@@ -28,6 +28,7 @@ namespace algorithmANT
             this.matrix = new AdjacencyMatrix(matrix);
         }
 
+        // Adjacency matrix for graph storage
         internal AdjacencyMatrix AdjacencyMatrix
         {
             get => default;
@@ -36,6 +37,7 @@ namespace algorithmANT
             }
         }
 
+        // Class Constructor
         internal Ant Ant
         {
             get => default;
@@ -44,11 +46,13 @@ namespace algorithmANT
             }
         }
 
+        // Getting the shortest length of a Hamiltonian cycle
         public double GetShortestCycleDistance()
         {
             return shortestCycleDistanse;
         }
 
+        // Formation of a visual representation of the Hamiltonian cycle in the form of a string
         public String GetShortestHamiltonianCycle()
         {
             StringBuilder sb = new StringBuilder();
@@ -60,6 +64,7 @@ namespace algorithmANT
             return sb.ToString();
         }
 
+        // Finding the shortest Hamiltonian cycle using the ACO algorithm
         public void FindShortestHamiltonianСycle() 
         {
             // Initialization of the pheromone matrix
